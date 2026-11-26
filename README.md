@@ -103,6 +103,8 @@ The **By hierarchy** view collapses OPC UA paths into expandable folders. Leaf c
 
 Each entity card shows its live Home Assistant state, including localized binary device-class labels, numeric units, text and date/time formatting. Values update as Home Assistant receives state changes without refreshing the panel or interrupting open dialogs. Unknown, unavailable, unregistered and excluded entities are clearly distinguished. This uses Home Assistant's existing state stream and adds no PLC polling. Values update after reads at the endpoint's configured polling interval and, for opted-in entities while Auto-Subscription is enabled, after server data-change notifications. Boolean inversion is already reflected in the displayed entity state.
 
+Click a registered entity's state or value to open Home Assistant's native entity details, including attributes, history and activity. The state area is keyboard accessible. Pending or excluded rows without an active entity remain non-interactive.
+
 Click **Edit** on an entity to configure:
 
 - **Update mode** (**Modalità aggiornamento**): **Polling only** (**Solo polling**, default) or **Polling + subscription**, for both discovered and manually added entities. See [Polling and subscriptions](#polling-and-subscriptions).

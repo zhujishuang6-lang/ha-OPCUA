@@ -1,6 +1,6 @@
 /* Native Home Assistant configuration panel. No external scripts or styles. */
 // Bump for every frontend change; displayed from the loaded JavaScript bundle.
-const PANEL_VERSION = "1.11.2";
+const PANEL_VERSION = "1.11.3";
 const TEXT = {
   it: {
     version: "Integrazione",
@@ -209,6 +209,7 @@ const TEXT = {
     setValue: "Imposta",
     clearValue: "Cancella",
     copyName: "Copia nome completo",
+    openMoreInfo: "Apri dettagli entità",
     copied: "Copiato",
     copyFailed: "Impossibile copiare il nome.",
     invalid_group: "Controlla i valori del gruppo.",
@@ -451,6 +452,7 @@ const TEXT = {
     setValue: "Set",
     clearValue: "Clear",
     copyName: "Copy full name",
+    openMoreInfo: "Open entity details",
     copied: "Copied",
     copyFailed: "Could not copy the name.",
     invalid_group: "Check the group values.",
@@ -633,7 +635,7 @@ dialog{border:1px solid var(--divider-color,#dce2ea);border-radius:18px;width:mi
 @media(max-width:650px){header{padding:14px 12px;gap:8px}h1{font-size:20px}.content{padding:16px 12px 32px}.endpointPanel{padding:15px;margin-bottom:18px}.toolbar{grid-template-columns:1fr;gap:12px}.endpointMeta{gap:12px}.endpointIdentity{flex-basis:100%}.endpointActions{width:100%}.endpointActions button{flex:1;min-height:44px}.endpointSubscription{gap:5px;padding-top:12px}.endpointSubscription .toggle{width:100%;min-height:44px}.grid{grid-template-columns:1fr}.navRow{gap:10px}nav{gap:3px}nav button{padding:8px 10px;min-height:42px}.card{padding:15px}.grid.list .card{grid-template-columns:minmax(0,1fr);gap:12px;padding:14px}.grid.list .cardBottom{flex-direction:row;justify-content:space-between;align-items:center;border-top:1px solid var(--divider-color,#e2e7ef);padding-top:10px}.grid.list .cardBottom .meta{text-align:left}.grid.list .entityState{display:flex;align-items:baseline;gap:10px}.actions button{min-height:42px}form{padding:20px}.entityForm{padding:0}.editorBody{padding:20px}.entityForm footer{padding-left:20px;padding-right:20px}.entityForm footer button{min-height:44px}.headerText p{font-size:12px}}
 .grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:10px;align-items:start}.card{padding:12px 14px;border-radius:11px}.card h3{font-size:14px;margin-bottom:3px}.address{font-size:10px}.cardTop .badge{font-size:10px;padding:2px 6px}.entityState{display:flex;align-items:center;gap:12px;flex:0 0 auto;margin-top:12px;min-height:48px}.valueIcon{display:flex;align-items:center;justify-content:center;width:38px;height:38px;flex:0 0 38px;border-radius:10px;color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}.valueIcon svg{width:23px;height:23px}.stateContent{min-width:0;flex:1}.stateLabel{font-size:10px;margin-bottom:2px}.stateValue{font-size:26px;font-weight:650;line-height:1.25;max-height:5em}.card[data-value-type="text"] .stateValue{font-size:15px;font-weight:400;line-height:1.45}.card[data-value-type="text"] .valueIcon{color:var(--accent-text);background:color-mix(in srgb,var(--accent-text) 10%,transparent)}.card[data-value-type="datetime"] .stateValue{font-size:15px;font-weight:500;line-height:1.45}.card[data-value-type="boolean"] .stateValue{font-size:16px;font-weight:600}.card[data-value-type="boolean"] .valueIcon{border-radius:50%;color:var(--secondary-text-color,#637487);background:color-mix(in srgb,var(--secondary-text-color,#637487) 10%,transparent)}.card[data-tone="active"] .valueIcon{color:var(--primary-color,#008fac);background:color-mix(in srgb,var(--primary-color,#008fac) 15%,transparent)}.card[data-tone="active"] .stateValue{color:var(--primary-color,#008fac)}.card[data-tone="alert"] .valueIcon{color:var(--error-color,#be3131);background:color-mix(in srgb,var(--error-color,#be3131) 12%,transparent)}.card[data-tone="alert"] .stateValue{color:var(--error-color,#be3131)}.card:not([data-state-kind="value"]) .stateValue{font-size:14px;font-weight:400;color:var(--secondary-text-color,#637487)}.card:not([data-state-kind="value"]) .valueIcon{color:var(--secondary-text-color,#637487);background:color-mix(in srgb,var(--secondary-text-color,#637487) 8%,transparent)}.card[data-state-kind="empty"] .stateValue{font-style:italic}.retainedValue{display:inline-block;font-size:10px;line-height:1.4;margin-top:5px;padding:2px 6px;border-radius:4px;color:var(--primary-text-color,#243346);background:color-mix(in srgb,var(--warning-color,#e0a000) 18%,var(--card-background-color,#fff))}.cardBottom{margin-top:8px;padding-top:0;border-top:0;gap:8px}.cardBottom .meta{font-size:11px}.cardBottom .actions button{padding:5px 10px;min-height:32px;font-size:12px}.grid.list .card{padding:10px 14px;gap:16px;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(150px,.55fr)}.grid.list .entityState{margin:0;min-height:40px;gap:10px}.grid.list .stateValue{font-size:21px}.grid.list .card[data-value-type="text"] .stateValue,.grid.list .card[data-value-type="datetime"] .stateValue{font-size:14px}.grid.list .card[data-value-type="boolean"] .stateValue{font-size:15px}.grid.list .card:not([data-state-kind="value"]) .stateValue{font-size:14px}.grid.list .valueIcon{width:32px;height:32px;flex-basis:32px}.grid.list .valueIcon svg{width:20px;height:20px}
 @media(max-width:650px){.grid{grid-template-columns:1fr}.card{padding:12px}.grid.list .card{grid-template-columns:minmax(0,1fr);gap:10px;padding:12px}.grid.list .entityState{align-items:center}.cardBottom .actions button{min-height:44px;padding:8px 12px}.cardBottom .meta{font-size:11px}}
-.card{--value-accent:var(--accent)}.card[data-value-type="text"]{--value-accent:var(--accent-text)}.card[data-value-type="datetime"]{--value-accent:var(--accent-datetime)}.card[data-value-type="boolean"]{--value-accent:var(--secondary-text-color,#637487)}.card[data-tone="active"]{--value-accent:var(--primary-color,#008fac)}.card[data-tone="alert"]{--value-accent:var(--error-color,#be3131)}.card:not([data-state-kind="value"]){--value-accent:var(--secondary-text-color,#637487)}.entityState{margin-top:8px;padding:6px 10px;gap:10px;border:1px solid color-mix(in srgb,var(--value-accent) 24%,transparent);border-radius:10px;background:color-mix(in srgb,var(--value-accent) 9%,var(--card-background-color,#fff));max-width:100%}.card .entityState .valueIcon{width:30px;height:30px;flex-basis:30px;background:transparent;color:var(--value-accent)}.grid.list .entityState{width:fit-content;max-width:100%;padding:6px 10px}.card[data-tone="alert"] .stateValue{color:color-mix(in srgb,var(--error-color,#be3131) 70%,var(--primary-text-color,#243346))}
+.card{--value-accent:var(--accent)}.card[data-value-type="text"]{--value-accent:var(--accent-text)}.card[data-value-type="datetime"]{--value-accent:var(--accent-datetime)}.card[data-value-type="boolean"]{--value-accent:var(--secondary-text-color,#637487)}.card[data-tone="active"]{--value-accent:var(--primary-color,#008fac)}.card[data-tone="alert"]{--value-accent:var(--error-color,#be3131)}.card:not([data-state-kind="value"]){--value-accent:var(--secondary-text-color,#637487)}.entityState{margin-top:8px;padding:6px 10px;gap:10px;border:1px solid color-mix(in srgb,var(--value-accent) 24%,transparent);border-radius:10px;background:color-mix(in srgb,var(--value-accent) 9%,var(--card-background-color,#fff));max-width:100%}.entityState.moreInfo{appearance:none;color:inherit;text-align:left;cursor:pointer}.entityState.moreInfo:hover{border-color:var(--value-accent);background:color-mix(in srgb,var(--value-accent) 15%,var(--card-background-color,#fff))}.card .entityState .valueIcon{width:30px;height:30px;flex-basis:30px;background:transparent;color:var(--value-accent)}.grid.list .entityState{width:fit-content;max-width:100%;padding:6px 10px}.card[data-tone="alert"] .stateValue{color:color-mix(in srgb,var(--error-color,#be3131) 70%,var(--primary-text-color,#243346))}
 .customizations{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px;min-width:0;order:2}.customizationBadge{padding:3px 7px;border-radius:5px;background:color-mix(in srgb,var(--secondary-text-color,#637487) 8%,transparent);border:1px solid var(--divider-color,#dce2ea);color:var(--secondary-text-color,#637487);font-size:11px;line-height:1.4;max-width:100%;overflow-wrap:anywhere}.cardBottom{order:3}.grid.list .cardBottom{order:0}.grid.list .customizations{grid-column:1/-1;order:1;margin-top:-4px}.grid.list .card:has(.customizations){row-gap:10px}
 @media(max-width:650px){.grid.list .customizations{margin-top:0}.grid.list .cardBottom{order:2}}
 .copyName{align-self:flex-start;white-space:nowrap;font-size:11px;padding:5px 8px}.hierarchyBranch>summary .groupSettings{margin-left:auto;flex-shrink:0;font-size:12px;padding:5px 9px;font-weight:500}.groupEditor .entityForm{max-height:min(86vh,900px)}.groupEditor .editorHeading{display:block}.groupEditor .editorHeading .hint{margin:5px 0 0}.groupMembers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:5px;max-height:200px;overflow:auto;padding:8px;border:1px solid var(--divider-color,#dce2ea);border-radius:8px}.groupMember{display:flex;align-items:center;gap:8px;overflow-wrap:anywhere;padding:4px}.groupMember input{width:18px;min-width:18px}.groupField{display:flex;flex-direction:column;gap:7px;min-width:0}.groupField>span{font-weight:600;font-size:13px}.groupField select,.groupField input{width:100%;min-width:0}.groupField .unitPicker>span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.groupLimits,.groupConversionArgs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:5px}.groupLimits .field,.groupConversionArgs .field{min-width:0}.draftReview{display:grid;gap:8px;max-height:55vh;overflow:auto}.draftReviewItem{display:grid;gap:4px;padding:10px;border:1px solid var(--divider-color,#dce2ea);border-radius:8px;overflow-wrap:anywhere}.draftReviewItem code{white-space:pre-wrap;overflow-wrap:anywhere;font-size:11px}.draftReviewItem button{justify-self:start}.draftReviewItem small{color:var(--secondary-text-color,#637487)}@media(max-width:650px){.hierarchyBranch>summary{flex-wrap:wrap}.hierarchyBranch>summary .groupSettings{margin-left:0}.copyName{white-space:normal}.groupLimits,.groupConversionArgs{grid-template-columns:1fr}}
@@ -1291,7 +1293,7 @@ class OpcuaNodePanel extends HTMLElement {
       add("node_id", this._t("remappedBadge"), `${row.key} → ${row.node_id}`);
     return badges.childElementCount ? badges : null;
   }
-  _buildCard(row, shortName = false) {
+  _buildCard(row, shortName = false, showMoreInfo = true) {
     const type = valueType(row);
     const card = element("article", undefined, {
       class: row.orphan ? "card orphan" : "card",
@@ -1351,7 +1353,28 @@ class OpcuaNodePanel extends HTMLElement {
         );
     }
     bottom.append(actions);
-    const state = element("div", undefined, { class: "entityState" });
+    const canShowMoreInfo =
+      showMoreInfo && row.entity_id && row.platform !== "disabled";
+    const state = element(canShowMoreInfo ? "button" : "div", undefined, {
+      class: canShowMoreInfo ? "entityState moreInfo" : "entityState",
+      ...(canShowMoreInfo
+        ? {
+            type: "button",
+            "aria-label": `${this._t("openMoreInfo")}: ${cardName}`,
+            title: this._t("openMoreInfo"),
+          }
+        : {}),
+    });
+    if (canShowMoreInfo)
+      state.addEventListener("click", () =>
+        state.dispatchEvent(
+          new CustomEvent("hass-more-info", {
+            detail: { entityId: row.entity_id },
+            bubbles: true,
+            composed: true,
+          }),
+        ),
+      );
     const icon = element("span", undefined, {
       class: "valueIcon",
       "aria-hidden": "true",
@@ -2840,7 +2863,9 @@ class OpcuaNodePanel extends HTMLElement {
         "data-platform": row.platform,
         "data-value-type": valueType(row),
       });
-      preview.append(this._buildCard(row).querySelector(".entityState"));
+      preview.append(
+        this._buildCard(row, false, false).querySelector(".entityState"),
+      );
       heading.append(preview);
     }
     form.prepend(heading);

@@ -345,7 +345,7 @@ test("desktop categories, search, endpoint selection and safe text rendering", a
   );
   assert.equal(
     await page.locator(".panelVersion").textContent(),
-    "Pannello 1.11.2",
+    "Pannello 1.11.3",
   );
   assert.equal(
     await page.getByRole("button", { name: "Menu", exact: true }).count(),
@@ -815,6 +815,43 @@ test("live entity states update without requests, rebuilding cards or losing dra
   await page.close();
 });
 
+for (const width of [390, 1280]) {
+  test(`clicking a value opens HA entity details at ${width}px`, async () => {
+    const page = await pageFor(width);
+    await page.evaluate(() => {
+      window.moreInfoEvents = [];
+      document.addEventListener("hass-more-info", (event) => {
+        window.moreInfoEvents.push({
+          entityId: event.detail.entityId,
+          bubbles: event.bubbles,
+          composed: event.composed,
+        });
+      });
+    });
+    const detail = page.getByRole("button", {
+      name: "Apri dettagli entità: Velocità linea",
+    });
+    await detail.click();
+    await detail.focus();
+    await detail.press("Enter");
+    assert.deepEqual(await page.evaluate(() => window.moreInfoEvents), [
+      { entityId: "sensor.velocita", bubbles: true, composed: true },
+      { entityId: "sensor.velocita", bubbles: true, composed: true },
+    ]);
+    await page
+      .getByRole("button", { name: "Modifica", exact: true })
+      .nth(2)
+      .click();
+    assert.equal(
+      await page
+        .locator(".editorState .entityState")
+        .evaluate((el) => el.tagName),
+      "DIV",
+    );
+    await page.close();
+  });
+}
+
 test("HA formatting and unavailable, unknown, empty, excluded and pending states", async () => {
   const page = await pageFor(390);
   await page.evaluate(() => {
@@ -880,6 +917,18 @@ test("HA formatting and unavailable, unknown, empty, excluded and pending states
   );
   assert.equal(await value("sensor.excluded").textContent(), "Esclusa");
   assert.equal(await value("").textContent(), "Non ancora registrata");
+  assert.equal(
+    await value("sensor.excluded")
+      .locator("../..")
+      .evaluate((el) => el.tagName),
+    "DIV",
+  );
+  assert.equal(
+    await value("")
+      .locator("../..")
+      .evaluate((el) => el.tagName),
+    "DIV",
+  );
   await shot(page, "live-states-mobile.png");
   await page.evaluate(() => {
     delete window.testHass.states["binary_sensor.porta"];
