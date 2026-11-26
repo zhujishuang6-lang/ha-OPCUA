@@ -1,5 +1,7 @@
 # 🏠 ha-OPCUA — OPC UA Connect for Home Assistant
 
+This is [zhujishuang6-lang's fork](https://github.com/zhujishuang6-lang/ha-OPCUA) of [xtimmy86x/ha-OPCUA](https://github.com/xtimmy86x/ha-OPCUA). It includes hierarchical entity names, folder editing, batch save, and sensor display-unit synchronization. The original authors and license are credited below.
+
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![HACS Custom](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://hacs.xyz)
 
@@ -42,10 +44,10 @@ This integration uses the `asyncua` library for **local polling**, with optional
 ## 📦 Installation
 
 ### Option 1: HACS (Recommended for Users)
-[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?repository=ha-OPCUA&owner=xtimmy86x&category=integration)
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?repository=ha-OPCUA&owner=zhujishuang6-lang&category=integration)
 
 1. Go to **HACS > Integrations > Custom repositories**
-2. Add this repository: [xtimmy86x/ha-OPCUA](https://github.com/xtimmy86x/ha-OPCUA)
+2. Add this repository: [zhujishuang6-lang/ha-OPCUA](https://github.com/zhujishuang6-lang/ha-OPCUA)
 3. Select category: **Integration**
 4. Click **Add**
 5. Install the **OPC UA Connect** integration
@@ -53,7 +55,7 @@ This integration uses the `asyncua` library for **local polling**, with optional
 
 ### Option 2: Manual
 
-1. Download the source code for the desired version from [Releases](https://github.com/xtimmy86x/ha-OPCUA/releases), or use **Code → Download ZIP** on the [repository page](https://github.com/xtimmy86x/ha-OPCUA).
+1. Use **Code → Download ZIP** on [this fork](https://github.com/zhujishuang6-lang/ha-OPCUA).
 2. Extract the archive and copy `custom_components/ha_opcua` into `/config/custom_components/`.
 3. Restart Home Assistant
 
@@ -375,7 +377,8 @@ custom_components/
 
 ## 🧑‍💻 Maintainer and credits
 
-- Maintainer: [@xtimmy86x](https://github.com/xtimmy86x)
+- Original ha-OPCUA maintainer: [@xtimmy86x](https://github.com/xtimmy86x)
+- This fork: [@zhujishuang6-lang](https://github.com/zhujishuang6-lang)
 - Original project: [Home-Assistant-Opcua-Discovery by @guanaco0403](https://github.com/guanaco0403/Home-Assistant-Opcua-Discovery). The original MIT copyright notice is retained in [LICENSE](LICENSE).
 
 ## 🪪 License
@@ -384,4 +387,4 @@ This project is licensed under the MIT License.
 
 ## 📢 Contribute
 
-Report bugs or request features in [Issues](https://github.com/xtimmy86x/ha-OPCUA/issues), or contribute through [Pull requests](https://github.com/xtimmy86x/ha-OPCUA/pulls). Pull requests are welcome! If you want to improve auto-discovery, error handling, or add support for more OPC UA types — contributions are appreciated.
+Report bugs or request features for this fork in [Issues](https://github.com/zhujishuang6-lang/ha-OPCUA/issues), or contribute through [Pull requests](https://github.com/zhujishuang6-lang/ha-OPCUA/pulls). Pull requests are welcome! If you want to improve auto-discovery, error handling, or add support for more OPC UA types — contributions are appreciated.
